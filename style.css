@@ -1,8 +1,15 @@
 /* moderni box model */
-html { box-sizing: border-box; }
-*, ::after, ::before { box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+}
+
+*, ::after, ::before {
+  box-sizing: inherit;
+}
 
 /* základní styly */
+
 body {
   font-family: 'Libre Baskerville', serif;
   margin: 0;
@@ -70,10 +77,25 @@ h1 {
   color: white;
 }
 
+.button {
+  background-color: rgb(75, 74, 74);
+  border-radius: 10px;
+  border: black solid 2px;
+  flex-basis: 35%;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  color: white;
+  padding: 10px 0px;
+  font-size: 16px;
+}
 
-
-
-
+.button__block {
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 0px;
+  background-color: lightgrey;
+  padding: 10px 0px;
+}
 
 body {
   background-color: #f0ede6;

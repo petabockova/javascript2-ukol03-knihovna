@@ -38,16 +38,16 @@ export default class Library {
 
   /* výpis všech knih v knihovně */
   listAllBooks() {
-    console.table(this.bookList);
-    console.log(this.currentBook);
-    console.log(this.nextBook);
+    this.getListHTML(this.bookList);
   }
 
   /* začít číst další knihu */
   startReadingNextBook() {
     if (this.nextBook !== null) {
       // příští knihu ke čtení dáme do aktuálně čtené knihy
+      this.finishCurrentBook();
       this.currentBook = this.nextBook;
+      this.currentBook.isCurrent = true;
       this.nextBook = null;
 
       // do příští knihy ke čtení dáme první nepřečtenou knihu v seznamu
@@ -58,6 +58,27 @@ export default class Library {
         }
       }
     }
+  }
+
+  finishCurrentBook() {
+    if (this.currentBook !== null) {
+      this.currentBook.read();
+      this.currentBook.isCurrent = false;
+      this.lastBook = this.currentBook;
+      this.currentBook = null;
+      this.unreadBooks--;
+    }
+  }
+
+  listUnreadBooks() {
+    let unreadBooksList = bookList.filter(book => !book.isRead);
+    console.log(unreadBooksList);
+  }
+
+  getListHTML(array) {
+    let reducedList = array.reduce((acc, cur) => acc + cur.renderHTML(), "");
+    let listHTML = document.getElementById("booklist");
+    listHTML.innerHTML = reducedList;
   }
 
 }

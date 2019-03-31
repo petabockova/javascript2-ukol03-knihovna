@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Knihovna</title>
-  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&amp;subset=latin-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&amp;subset=latin-ext"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <h1>Knihovna</h1>
+  <div class="button__block">
+    <button class="button" id="button--finish">Dokončit aktuální knihu</button>
+    <button class="button" id="button--start">Začít číst další knihu</button>
+  </div>
 
   <!-- Do tohoto div se bude generovat HTML se seznamem knih (nepovinná část úkolu) -->
   <div class="booklist" id="booklist"></div>
@@ -25,4 +32,5 @@
   <script src="dist/app.bundle.js"></script>
 
 </body>
+
 </html>
